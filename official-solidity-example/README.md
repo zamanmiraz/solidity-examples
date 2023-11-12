@@ -5,7 +5,7 @@ The contract creator assumes the role of the chairperson and has the authority t
 
 Upon the conclusion of the voting period, the function winningProposal() determines the proposal with the highest number of votes, establishing the winner of the ballot.
 
-## Truffle Initiazation
+## Initializing Truffle & Ganache
 Command `truffle init` create a project structure in the current directory.
 The project structure file include: 
 
@@ -14,11 +14,14 @@ The project structure file include:
 - test/: Directory for test files for testing your application and contracts
 - truffle-config.js: Truffle configuration file
 
+Following the installation of `ganache`, executing the `ganache` command in a separate terminal will generate a personal test blockchain.
+
 ## Contract Creation
 The voting contract placed in the contract folder of the current directory i.e., `contracts/voting.sol`.
+`truffle compile` command in the directory compile the contract.
 
-## Migration Script
-In the migration directory, a migration script titled 2_deploy_contracts.js is present.
+## Deploy using Migration Script
+In the migration directory `migrations/`, a migration script titled `2_deploy_contracts.js` is present.
 ```
 const voting_contract = artifacts.require("Ballot");
 
@@ -31,3 +34,7 @@ In the script, the `artifacts.require()` method is utilized to instantiate a con
 The migration script exports a function through the `module.exports` syntax, which takes a deployer object as a parameter.
 The deployer is responsible for deploying a specific contract (Ballot), as specified by the contract object (voting_contract).
 The constructor argument (proposalNames) must also be provided in the deployment, like so: "0x666f6f0000000000000000000000000000000000000000000000000000000000","0x6261720000000000000000000000000000000000000000000000000000000000".
+`truffle migrate` command deploy the contract to local `ganache` blockchain which is listening in `127.0.0.1:8545`.
+
+## Interact with Contract
+
