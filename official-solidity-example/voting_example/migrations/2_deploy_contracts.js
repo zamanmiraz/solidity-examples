@@ -1,0 +1,5 @@
+const voting_contract = artifacts.require("Ballot");
+
+module.exports = function (deployer) {
+  deployer.deploy(voting_contract, ["0x666f6f0000000000000000000000000000000000000000000000000000000000","0x6261720000000000000000000000000000000000000000000000000000000000"]);
+};
