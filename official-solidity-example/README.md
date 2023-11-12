@@ -26,7 +26,7 @@ module.exports = function (deployer) {
   deployer.deploy(voting_contract, ["0x666f6f0000000000000000000000000000000000000000000000000000000000","0x6261720000000000000000000000000000000000000000000000000000000000"]);
 };
 ```
-The naming convention for migration scripts can be found [here](https://trufflesuite.com/docs/truffle/how-to/contracts/run-migrations/#migration-files)..
+The naming convention for migration scripts can be found [here](https://trufflesuite.com/docs/truffle/how-to/contracts/run-migrations/#migration-files).
 In the script, the `artifacts.require()` method is utilized to instantiate a contract (named ballot in this case) from its file.
 The migration script exports a function through the `module.exports` syntax, which takes a deployer object as a parameter.
 The deployer is responsible for deploying a specific contract (Ballot), as specified by the contract object (voting_contract).
