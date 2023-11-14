@@ -37,4 +37,5 @@ The constructor argument (proposalNames) must also be provided in the deployment
 `truffle migrate` command deploy the contract to local `ganache` blockchain which is listening in `127.0.0.1:8545`.
 
 ## Interact with Contract
-
+- All the account address manage in the current node can be found with this command `let accounts = web3.eth.getAccounts().then(console.log);`
+  
