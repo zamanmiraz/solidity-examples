@@ -39,5 +39,6 @@ The constructor argument (proposalNames) must also be provided in the deployment
 ## Interact with Contract
 - All the account address manage in the current node can be found with this command `let accounts = web3.eth.getAccounts().then(console.log);`
 - Creating an instance of deployed `let ballotinstance = await Ballot.deployed();`
+- `chairperson` address can found `let chairs = ballotinstance.chairperson();`
 - 
   
