@@ -40,5 +40,16 @@ The constructor argument (proposalNames) must also be provided in the deployment
 - All the account address manage in the current node can be found with this command `let accounts = web3.eth.getAccounts().then(console.log);`
 - Creating an instance of deployed `let ballotinstance = await Ballot.deployed();`
 - `chairperson` address can found `let chairs = ballotinstance.chairperson();`
-- 
+- Select a voter and give right to vote to the voter:
+  ```
+  let voter1 = accounts[1];
+  await ballotinstance.giveRightToVote(voter1, {from:chairs});
+  ```
+- Vote by the voter `await ballotinstance.vote(0, {from:voter1});`
+- Delegate vote to another voter
+  ```
+  let voter3 = accounts[4];
+  let voter4 = accounts[5];
+  await ballotinstance.delegate(voter4, {from: voter3});
+  ```
   
