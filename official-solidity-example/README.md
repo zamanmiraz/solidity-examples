@@ -50,6 +50,8 @@ The constructor argument (proposalNames) must also be provided in the deployment
   ```
   let voter3 = accounts[4];
   let voter4 = accounts[5];
+  await ballotinstance.giveRightToVote(voter3, {from:chairs});
+  await ballotinstance.giveRightToVote(voter4, {from:chairs});
   await ballotinstance.delegate(voter4, {from: voter3});
   ```
   
