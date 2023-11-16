@@ -3,7 +3,7 @@ Voting contract example follows a simple approach by creating one contract per b
 
 The contract creator assumes the role of the chairperson and has the authority to grant voting rights to each address individually. Participants can decide to cast their votes directly or delegate their voting power to a trusted individual.
 
-Upon the conclusion of the voting period, the function winningProposal() determines the proposal with the highest number of votes, establishing the winner of the ballot.
+Upon the conclusion of the voting period, the function `winningProposal()` determines the proposal with the highest number of votes, establishing the winner of the ballot.
 
 ## Initializing Truffle & Ganache
 Command `truffle init` create a project structure in the current directory.
