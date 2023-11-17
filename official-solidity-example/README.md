@@ -55,6 +55,7 @@ The constructor argument (proposalNames) must also be provided in the deployment
   await ballotinstance.delegate(voter4, {from: voter3});
   ```
 - See a particular voter information `await ballotinstance.voters(voter1);`
+- We can see a particular proposal details `await ballotinstance.proposals(0);`
 - We can find the winning proposal `await ballotinstance.winningProposal();`
 - We can also find the winner name `await ballotinstance.winnerName();`
   
