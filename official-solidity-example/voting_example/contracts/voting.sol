@@ -19,6 +19,7 @@ contract Ballot {
     }
 
     address public chairperson;
+    // uint[] public winningProposal_array;
 
     // This declares a state variable that
     // stores a `Voter` struct for each possible address.
@@ -69,6 +70,22 @@ contract Ballot {
         );
         require(voters[voter].weight == 0);
         voters[voter].weight = 1;
+    }
+
+    function giveRightToVote_array(address[] memory voters_array) external {
+        require(
+            msg.sender == chairperson,
+            "Only chairperson can give right to vote"
+        );
+        for (uint v = 0; v < voters_array.length; v++) {
+            // require(
+            //     !voters[voters_array[v]].voted,
+            //     "The voter already voted"
+            // );
+            if (!voters[voters_array[v]].voted && voters[voters_array[v]].weight == 0 ){
+                voters[voters_array[v]].weight = 1;
+            }
+        }
     }
 
     /// Delegate your vote to the voter `to`.
@@ -133,7 +150,27 @@ contract Ballot {
 
     /// @dev Computes the winning proposal taking all
     /// previous votes into account.
-    function winningProposal() public view
+    // function winningProposal_tie() public view
+    //         returns (uint[] winningProposal_array)
+    // {
+    //     uint winningVoteCount = 0;
+    //     winningProposal_array = new uint[](proposals.length);
+    //     // uint[] memory numbers
+    //     for (uint p = 0; p < proposals.length; p++) {
+    //         if (proposals[p].voteCount > winningVoteCount) {
+    //             winningVoteCount = proposals[p].voteCount;
+    //         }
+    //     }
+
+        // for (uint p = 0; p < proposals.length; p++) {
+        //     if (proposals[p].voteCount == winningVoteCount) {
+        //         winningProposal_array[p] = winningVoteCount;
+        //     }
+        // }
+        // return winningProposal_array;
+    }
+
+        function winningProposal() public view
             returns (uint winningProposal_)
     {
         uint winningVoteCount = 0;
