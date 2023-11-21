@@ -75,4 +75,6 @@ function giveRightToVote_array(address[] memory voters_array) external {
         }
     }
 ```
+
+To interact with the contract for enabling multiple voters `await ballotinstance.giveRightToVote_array([accounts[4], accounts[5]])`. Now voter 4 (`accounts[4]`) and voter 5 (`accounts[5]`). Only one transaction is needed.
   
