@@ -58,4 +58,21 @@ The constructor argument (proposalNames) must also be provided in the deployment
 - We can see a particular proposal details `await ballotinstance.proposals(0);`
 - We can find the winning proposal `await ballotinstance.winningProposal();`
 - We can also find the winner name `await ballotinstance.winnerName();`
+
+## Improvement of voting contract
+Here's a modified version of the function to enable multiple voters to be given the right to vote using an array of voter addresses:
+
+```
+function giveRightToVote_array(address[] memory voters_array) external {
+        require(
+            msg.sender == chairperson,
+            "Only chairperson can give right to vote"
+        );
+        for (uint v = 0; v < voters_array.length; v++) {
+            if (!voters[voters_array[v]].voted && voters[voters_array[v]].weight == 0 ){
+                voters[voters_array[v]].weight = 1;
+            }
+        }
+    }
+```
   
